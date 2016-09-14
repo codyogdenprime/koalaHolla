@@ -72,5 +72,5 @@ app.post( '/editKoala', urlencodedParser, function( req, res ){
   console.log( 'editKoala route hit' );
   //assemble object to send
   client.query('UPDATE koalas SET name=$1,sex=$2,age=$3,readyForTransfer=$4,notes=$5 WHERE id=$1',[data.name,data.sex,data.age,data.readyForTransfer,data.notes]);
-
+  res.status(200);
 });//app.post

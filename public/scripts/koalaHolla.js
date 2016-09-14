@@ -47,6 +47,7 @@ var getKoalas = function(){
     type: 'GET',
     success: function( data ){
       console.log( 'got some koalas: ', data );
+      displayKoalas(data);
     } // end success
   }); //end ajax
   // display on DOM with buttons that allow edit of each
@@ -75,7 +76,7 @@ var saveKoala = function( newKoala ){
     success: function( data ){
       console.log( 'got some koalas: ', data );
       getKoalas();
-      displayKoalas(data);
+      // displayKoalas(data);
     } // end success
   }); //end ajax
 };
@@ -91,9 +92,7 @@ var displayKoalas = function(data){
     var transferrabe = $('<div />').addClass('koala-transferrable').html(index.transferrabe);
     var notes = $('<div />').addClass('koala-notes').html(index.notes);
 
-    wrapper.append(name);
+    wrapper.append(name).append(age).append(sex).append(transferrabe).append(notes);
     $('#viewKoalas').append(wrapper);
-
-
   }
 };//displayKoalas
